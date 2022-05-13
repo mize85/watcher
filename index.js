@@ -29,9 +29,9 @@ function handleNewFile(filePath) {
     const sheet_name_list = workbook.SheetNames;
     const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
     const xml = builder.buildObject({
-      $: {serverId: "", version: ""}, users: xlData.map(d => ({
+      users: {$: {serverId: "", version: ""}, user: xlData.map(d => ({
         $: {role: d.role, identifier: d.login_1, name: d.name, password: d.password, login: d.login}
-      }))
+      }))}
     });
 
     // write xml
