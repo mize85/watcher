@@ -27,8 +27,6 @@ function handleNewFile(filePath) {
     const workbook = XLSX.readFile(filePath);
     const sheet_name_list = workbook.SheetNames;
     const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-    console.log(xlData);
-
     const builder = new xml2js.Builder();
 
     // <user role="administrator" identifier="0000000000101" name="Administrator" password="12Ev3CEYljHE." login="1234"/>
